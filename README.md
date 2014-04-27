@@ -12,6 +12,7 @@ hey [Download Hubpi](https://github.com/mrjopino/hubpi/archive/master.zip). :)
 
 [Read everything here](https://github.com/mrjopino/hubpi/wiki/_pages). 
 
+* View demo - [http://mrjopino.github.io/hubpi/](http://mrjopino.github.io/hubpi/)
 
 -------------
 
