@@ -1,0 +1,506 @@
+/**
+ * styles of posts (publication), hubpi
+ */
+@import url(http://fonts.googleapis.com/css?family=Varela+Round);
+@import url(http://weloveiconfonts.com/api/?family=fontawesome|entypo);
+@import url(pineres.min.css);
+
+[class*="fontawesome-"]:before {
+  font-family: 'fontawesome', sans-serif;
+}
+[class*="entypo-"]:before {
+  font-family: 'entypo', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fff;
+  color: #324155;
+  font-size: 0.92em;
+  font: 1em/1.65 "Lato", sans-serif;
+  margin: 0;
+}
+
+::-webkit-scrollbar {
+   -webkit-appearance: none !important;
+   -moz-appearance: none !important;
+   width: 0.80em;
+   background-color: #cbcbcb;
+}
+::-webkit-scrollbar-thumb {
+    background: #9a9a9a;
+}
+
+.hp_post_header {   
+  position: relative;
+  text-align: center;
+  background: #45739C;
+  border-bottom: 0.23em solid #8ec6df;
+  color: #fff;
+  font-size: 1em;
+  padding: 20px 0;
+  font-weight: 100;
+  text-decoration: none;
+  margin: 0;
+  filter: dropshadow(color=#45739C, offx=0, offy=2);
+}
+
+.hp_post_date {
+  font-size: .90em;
+  color: #999;
+  font-family: "Open Sans",Arial,sans-serif;
+  margin-bottom: 26px; 
+  margin: 2% auto;
+  text-align: center;
+}
+
+.hp_post_content {
+    margin: 0 auto;
+    max-width: 950px;
+    position: relative;
+}
+
+.box {
+  padding: 0 5% 12.5%;
+  font-size: 1.25em;
+}
+
+/* error of hubper json */
+.hp_error_json {
+  position: relative;
+  text-align: center;
+  margin: 2% auto;
+  display: block;
+  background: #FD625E;
+  color: #fff;
+  font-family: 'Varela round', serif;
+  text-align: center;
+  font-size: 3em;
+  width: 80%;
+  padding: 5%;
+  -webkit-border-radius: 0.20em;
+  -moz-border-radius: 0.20em;
+  -ms-border-radius: 0.20em;
+  -o-border-radius: 0.20em;
+  border-radius: 0.20em;
+}
+/* END error json */
+
+/* Focusfix */
+.focusfix {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(to bottom right, rgba(30, 1, 5, 0.70), rgba(41, 36, 132, 1.85));
+  display: block;
+  width: 100% !important;
+  height:100% !important;
+  outline: none;
+}
+.focusfix_size.pfocus {
+  position: fixed;
+  margin:auto!important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 100%;
+  width: 9.23em;
+  padding: 2em 0em 2em 0em;
+  height: auto;
+}
+.focusfix_size {
+  cursor: pointer;
+  margin: 0 0px 30px 0;
+}
+.puff {
+  overflow-y:hidden;
+}
+/* END focusfix */
+
+/* loader of content json */
+.hp_loader {
+  display: block;
+  margin: 2em auto;
+  transform: translate(-10%, -10%);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 .2em rgba(153, 153, 153, 0.4);
+  width: 4em;
+  height: 4em;
+  border: .7em solid #b0d3f1;
+}
+
+span .hp_loading:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 50%;
+  border-left: .6em solid transparent;
+  border-top: .6em solid #45739C;
+  border-right: .6em solid transparent;
+  border-bottom: .6em solid transparent;
+  -webkit-animation: hp_loader 800ms infinite;
+  -moz-animation: hp_loader 800ms infinite;
+  -ms-animation: hp_loader 800ms infinite;
+  -o-animation: hp_loader 800ms infinite;
+  animation: hp_loader 800ms infinite;
+  animation-timing-function: linear;
+}
+/* END loader */
+
+h1 {
+  font-size: 2em;
+  margin: .67em 0;
+  -webkit-margin-before: 0.67em;
+  -webkit-margin-after: 0.67em;
+  -webkit-margin-start: 0em;
+  -webkit-margin-end: 0em;
+  display: block;
+}
+h2 {
+  display: block;
+  font-size: 1.5em;
+  -webkit-margin-before: 0.83em;
+  -webkit-margin-after: 0.83em;
+  -webkit-margin-start: 0em;
+  -webkit-margin-end: 0em;
+  font-weight: bold;
+}
+h3 {
+  font-size: .90em;
+}
+h4 {
+  font-size: .80em;
+}
+h5 {
+  font-size: .70em;
+}
+h6 {
+  font-size: .60em;
+}
+
+.left {
+  float: left;
+  text-align: left;
+}
+.right {
+  float: right;
+  text-align: right;
+}
+.center {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.justify {
+  text-align: justify;
+}
+.initial {
+  text-align: initial;
+}
+
+.sexy {
+  font-family: "Varela Round", Sans-Serif;
+  font-size: 1.3em;
+  color: #669ae1;
+}
+
+a {
+  position: relative;
+  margin: 0% auto;
+  color: #669ae1;
+  font-weight: 100;
+  text-decoration: none;
+}
+a:hover {
+  color: #39c;
+}
+
+p {
+  color: #666;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7em;
+  margin-bottom: 30px;
+  margin: 2%;
+  color: #666;
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+
+code {
+  font-family: 'Inconsolata', monospace;
+  background-color: #f2f5f5;
+  color: #4e5758;
+  border: 0.13em solid #cfd9db;
+  padding: 0em 0.23em;
+  font-size: .8em;
+  -webkit-border-radius: 0.20em;
+  -moz-border-radius: 0.20em;
+  -ms-border-radius: 0.20em;
+  -o-border-radius: 0.20em;
+  border-radius: 0.20em;
+}
+
+img,iframe {
+  max-width: 100%;
+  display: inline-block;
+  border: .20em solid #55acee;
+  -webkit-border-radius: .2em;
+  -moz-border-radius: .2em;
+  -ms-border-radius: .2em;
+  -o-border-radius: .2em;
+  border-radius: .2em;
+}
+
+/* colors txt & background*/
+/* txt colors */
+.blue {
+  color: #227dd1;
+}
+.red {
+  color: #e74c3c;
+}
+.green {
+  color: #48cfad;
+}
+.yellow {
+  color: #ffd464;
+}
+.black {
+  color: #333333;
+}
+/* END txt colors */
+
+/* background colors */
+.bg-blue {
+  background-color: #227dd1;
+}
+.bg-red {
+  background-color: #e74c3c;
+}
+.bg-green {
+  background-color: #48cfad;
+}
+.bg-yellow {
+  background-color: #ffd464;
+}
+.bg-black {
+  background-color: #333333;
+}
+/* END background colors */
+
+/* buttons kissUI */
+.btn_kiss {
+  background-color: #b0d3f1;
+  -webkit-border-radius: 0.30em;
+  -moz-border-radius: 0.30em;
+  -ms-border-radius: 0.30em;
+  -o-border-radius: 0.30em;
+  border-radius: 0.30em;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Monda', Sans-Serif;
+  margin: 0.9em 0.8em 0;
+  outline: none;
+  padding: 0.80em 1.87em;
+  text-decoration: none;
+  transition: all 0.1s ease;
+}
+.btn_kiss:hover {
+  background-color: #b9d9f5;
+  color: #fff;
+}
+.btn_kiss:active {
+  -webkit-transform: scale(.96);
+  -moz-transform: scale(.96);
+  -ms-transform: scale(.96);
+  -o-transform: scale(.96);
+  transform: scale(.96);
+}
+.btn_kiss.blue {
+  background-color: #227dd1;
+}
+.btn_kiss.blue:hover {
+  background: #3498db;
+  color: #fff;
+}
+.btn_kiss.red {
+  background-color: #e74c3c;
+}
+.btn_kiss.red:hover {
+  background: #f26455;
+  color: #fff;
+}
+.btn_kiss.green {
+  background-color: #48cfad;
+}
+.btn_kiss.green:hover {
+  background-color: #35c9a4;
+  color: #fff;
+}
+.btn_kiss.yellow {
+  background-color: #ffd464;
+  color: #fff;
+}
+.btn_kiss.yellow:hover {
+  background-color: #edd85d;
+  color: #fff;
+}
+.btn_kiss.black {
+  background-color: #333333;
+  color: #fff;
+}
+.btn_kiss.black:hover {
+  background-color: #454545;
+  color: #fff;
+}
+.btn_kiss.twitter {
+  background-color: #33CCFF;
+}
+.btn_kiss.twitter:hover {
+  background: #34b3e5;
+  color: #fff;
+}
+.btn_kiss.facebook {
+  background-color: #3B5998;
+}
+.btn_kiss.facebook:hover {
+  background: #4875B4;
+  color: #fff;
+}
+.btn_kiss.gplus {
+  background-color: #c63D2d;
+}
+.btn_kiss.gplus:hover {
+  background: #d04829;
+  color: #fff;
+}
+
+/* Badges kissUI */
+.badge_kiss {
+  background-color: #b0d3f1;
+  -webkit-border-radius: 0.80em;
+  -moz-border-radius: 0.80em;
+  -ms-border-radius: 0.80em;
+  -o-border-radius: 0.80em;
+  border-radius: 0.80em;
+  color: #fff;
+  font-size: 0.74em;
+  font-family: 'Varela round', Sans-Serif;
+  padding: 0.20em 0.72em 0.23em;
+  white-space: nowrap;
+}
+.badge_kiss:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.badge_kiss.blue {
+  background-color: #227dd1;
+}
+.badge_kiss.green {
+  background-color: #48cfad;
+}
+.badge_kiss.red {
+  background-color: #e74c3c;
+}
+.badge_kiss.yellow {
+  background-color: #ffd464;
+}
+.badge_kiss.black {
+  background-color: #333333;
+}
+/* END kissUI */
+
+/* heart with entypo <3 :) */
+.heart { 
+  position: relative;
+  margin: 2% auto;
+  color: #ec4e50;
+  text-align: center;
+}
+/* END heart love */
+
+/* footer hubpi post */
+footer {
+  margin: 6% auto;
+  background: #fff;
+  padding: 1em;
+  text-align: center;
+  border-top: 0.23em solid #8ec6df;
+  color: #fff;
+  display: block;
+  height: 4em;
+}
+footer p {
+  font-size: 1.13em;
+  line-height: 1.11111em;
+}
+
+footer .tw-footer {
+  color: #00acee;
+  font-size: 3.25em;
+}
+footer a {
+  font-family: "Varela Round", Sans-Serif;
+  text-decoration: none;
+  color: #669ae1;
+}
+footer a:hover {
+  color: #39c;
+} 
+
+footer section {
+  font-family:  "Varela Round", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  margin: 0 auto;
+  color: #333;
+  max-width: 37em;
+  width: 90%;
+}
+
+footer span {
+  font-weight: bold;
+  color: #8ec6df;
+}
+
+@media screen and (min-width: 30em) and (max-width : 40em) {
+  .hp_post_header {
+    font-family: 'Varela Round', sans-serif;
+    font-size: 1em;
+  }
+    .hp_hubper_content {
+      width: 82%;
+      font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 32em) {
+  .hp_post_header {
+    font-family: 'Varela Round', sans-serif;
+    font-size: .84em;
+  }
+}

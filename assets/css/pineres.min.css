@@ -1,0 +1,8 @@
+/*
+* Pineapple responsive (pineres)
+* Grids for kissUI
+* 13 class
+* pineres
+* Copyright 2014, @mrjopino
+*/
+[class*=pr-]{float:left;padding:.3em}[class*=pr-]:last-of-type{padding-right:.3em;float:right}.space-kiss{width:95%;margin:0 auto}.space-kiss:after{content:"";display:table;clear:both}.pr-1{width:100%}.pr-2{width:50%}.pr-3{width:33.33%}.pr-4{width:25%}.pr-5{width:20%}.pr-6{width:16.6666666667%}.pr-7{width:14.2857142857%}.pr-8{width:12.5%}.pr-9{width:11.1111111111%}.pr-10{width:10%}.pr-11{width:9.09090909091%}.pr-12{width:8.33%}.pr-13{width:7.65%}@media (max-width:30em){.pr-1,.pr-10,.pr-11,.pr-12,.pr-13,.pr-2,.pr-3,.pr-4,.pr-5,.pr-6,.pr-7,.pr-8,.pr-9{width:100%}.space-kiss .pr-4:nth-child(2){float:right}.space-kiss .pr-4:nth-child(3){clear:both;float:left}.space-kiss .pr-4:nth-child(4){float:right}}@media (min-width:30em) and (max-width:50em){.pr-3{width:33.33%}.pr-4{width:100%}.pr-10,.pr-11,.pr-5,.pr-6,.pr-7,.pr-8,.pr-9{width:100%}.pr-12,.pr-13{width:50%}}@media (min-width:50em) and (max-width:68.75em){.pr-2,.pr-7{width:100%}.pr-10,.pr-12,.pr-13,.pr-4,.pr-8{width:50%}}
