@@ -1,5 +1,7 @@
-hubpi
+hubpi 
 =====
+
+[![Gitter chat](https://badges.gitter.im/mrjopino/hubpi.png)](https://gitter.im/mrjopino/hubpi)
 
 Simple and awesome cms for front-end!
 
