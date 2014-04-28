@@ -81,6 +81,27 @@ body {
   color: #fff;
 }
 
+@-webkit-viewport {
+  width: device-width;
+  user-zoom: fixed;
+}
+@-moz-viewport {
+  width: device-width;
+  user-zoom: fixed;
+}
+@-ms-viewport {
+  width: device-width;
+  user-zoom: fixed;
+}
+@-o-viewport {
+  width: device-width;
+  user-zoom: fixed;
+}
+@viewport {
+  width: device-width;
+  user-zoom: fixed;
+}
+
 header {
   position: relative;
   text-align: center;
