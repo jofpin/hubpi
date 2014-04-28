@@ -112,6 +112,7 @@ $(document).ready(function() {
              '</a>' +
              '</li>' +
              '</div>';
+             console.log('ID hubper : ' + data.id + ' | Title post :' + data.title + ' | Date :' + data.date)
       return html;
     }
   };
@@ -150,6 +151,7 @@ $(document).ready(function() {
 $("#username").append($username);
 $("#description").append($description);
 $("#avatar").append("<img src=" + $avatar + " alt='" + $username + "'/>");
+console.log('Username : ' + $username + ' | Description :' + $description + ' | Twitter : ' + '@' +$twitter );
 hp_background_img = "linear-gradient(to bottom right, rgba(30, 1, 5, 0.30), rgba(41, 36, 132, 0.85)),url('" + $background_image + "') center center fixed"
 hp_background_color = $background_color
 
