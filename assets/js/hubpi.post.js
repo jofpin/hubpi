@@ -1,18 +1,8 @@
 /**
- *
- * hubpi.post.js
- *
+ * hubpi.post.js > for posts
  * Its awesome and sexy written text to hubpear
- * version: 1.0
- *
- * Find the project on GitHub: 
- * https://github.com/mrjopino/hubpi
- *
-  * ============================
-  * Copyright, 2014 by Jose Pino
-  * https://twitter.com/mrjopino
-  * ============================
- *
+ * @author Jose Pino http://mrjopino.com, @mrjopino
+ * Copyright, 2014
  */
 $(document).ready(function() {
 
@@ -66,6 +56,7 @@ $(document).ready(function() {
         
       }).error(function(j,t,e) { // error
         $data_hp_post.html('<span class="'+ hp_class_error +'">' + hp_txt_error + e + '</span>');
+        console.log('Error : ' + e)
       });
     },
     
@@ -83,6 +74,7 @@ $(document).ready(function() {
              '<article>' + data.content +
              '</article>' +
              '</section>';
+             console.log('Title post : ' + data.title + ' | Date :' + data.date + ' | Date :' + data.date + ' | Content : ' + data.content)
       return html;
     }
   };
