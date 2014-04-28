@@ -40,6 +40,27 @@ body {
     background: #9a9a9a;
 }
 
+@-webkit-viewport {
+  width: device-width;
+  user-zoom: fixed;
+}
+@-moz-viewport {
+  width: device-width;
+  user-zoom: fixed;
+}
+@-ms-viewport {
+  width: device-width;
+  user-zoom: fixed;
+}
+@-o-viewport {
+  width: device-width;
+  user-zoom: fixed;
+}
+@viewport {
+  width: device-width;
+  user-zoom: fixed;
+}
+
 .hp_post_header {   
   position: relative;
   text-align: center;
