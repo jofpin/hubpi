@@ -1,7 +1,7 @@
 /**
  * hubpi.post.js > for posts
  * Its awesome and sexy written text to hubpear
- * @author Jose Pino http://mrjopino.com, @mrjopino
+ * @author Jose Pino http://mrjopino.com, @jofpin
  * Copyright, 2014
  */
 $(document).ready(function() {
