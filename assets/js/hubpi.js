@@ -6,11 +6,11 @@
  * version: 1.0
  *
  * Find the project on GitHub: 
- * https://github.com/mrjopino/hubpi
+ * https://github.com/jofpin/hubpi
  *
   * ============================
   * Copyright, 2014 by Jose Pino
-  * https://twitter.com/mrjopino
+  * https://twitter.com/jofpin
   * ============================
  *
  */
