@@ -39,7 +39,7 @@ $(function() {
       
       $.getJSON(attrData.data('hp-post'),function(data) {
         
-        var hp = self.content_hubpers(); 
+        var hp = self.topcontent(); 
         
         $.each(data,function(_,_item) {  
           hp += self.templatePOST(_item);
@@ -54,7 +54,7 @@ $(function() {
     },
     
     // your div here here :)
-    content_hubpers: function() {
+    topcontent: function() {
       html = ('');
       return html;
     },
