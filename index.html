@@ -4,18 +4,28 @@
     <meta charset="utf-8">
     <title>Your name &#8250; description!</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-   
+    
     <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width">
+    <!-- iOS meta -->
+    <meta name="apple-mobile-web-app-title" content="Title of page or your name">
+    <meta name="apple mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- end ios meta -->
     <meta name="generator" content="Hubpi"/>
+    <meta name="google" value="notranslate"/>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
 
-    <script src="assets/js/libs/prefixfree.min.js"></script>
-
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <script src="assets/js/libs/jquery.min.js"></script>
+    <!--[if (gte IE 6) & (lte IE 9)]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
 </head>
 <body>
 
@@ -27,40 +37,49 @@
   </figure>
   
   <div id="username"></div> 
-  <p id="description"></p> 
-  
-<a class="hp_scroll_down" href="#down" id="down" data-hp-scroll>
-    <span class="fontawesome-chevron-down"></span>
+  <p id="description"></p>
+
+<a class="scrollDown" href="#" id="down" data-scrolling="down">
+    <span class="fa fa-chevron-down"></span>
 </a>
+
+<div class="social">
+  <div id="twitter"></div>
+  <div id="github"></div>
+  <div id="codepen"></div>
+</div>
 </header>
 
-<a href="#updatehp" title="update hubpers">
-      <button class="hp_btn_update" id="updatehp">Update</button>
+<a href="#update" title="update hubpers">
+      <button class="btn-update" id="update">Update</button>
 </a>
-  
-  <!-- data hubpers :) -->
-<div data-hp="data/hubpers.json">
-</div>
 
-<a class="hp_scroll_top" href="#hubpi" data-hp-scroll>
-	<span class="fontawesome-chevron-up"></span>
+<!-- Here is your about
+<a href="#about">
+<button class="btn-about">About</button>
+</a>
+-->
+
+  <!-- data hubpers #! -->
+<div data-hp="data/hubpers.json"></div>
+
+
+<a class="scrollTop" href="#" data-scrolling="hubpi">
+	<span class="fa fa-chevron-up"></span>
 </a>
  
 <footer>
   
  <section>
-    <div id="twitter"></div>
+    <div id="twitter-footer"></div>
  </section>
-  <section>Created with <span class="entypo-heart heart" title="love"></span> by <a href="http://hubpi.co" title="Hubpi">Hubpi</a>
+  <section>Created with <span class="copyright-heart" title="love"></span> by <a href="http://hubpi.co" title="Hubpi">Hubpi</a>
   </section>
   
 </footer>
 
-  <script>
-  window.jQuery || document.write('<script src="assets/js/libs/jquery.min.js"><\/script>');
-  </script>
   <!-- hubpi.js magic the hubpers -->
-  <script src="assets/js/hubpi.min.js"></script>
+  <script src="assets/js/hubpi.js"></script>
   <script src="config.js"></script>
 
 <!-- Google Analytics -->
@@ -70,7 +89,7 @@
     e=o.createElement(i);r=o.getElementsByTagName(i)[0];
     e.src='//www.google-analytics.com/analytics.js';
     r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create',$g_analytics);ga('send','pageview');
+    ga('create',$gAnalytics);ga('send','pageview');
 </script>
 </body>
 </html>

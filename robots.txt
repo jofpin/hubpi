@@ -1,4 +1,4 @@
 # www.robotstxt.org/
 
 User-agent: *
-Disallow: /_data/
+Disallow: /data/
