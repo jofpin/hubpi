@@ -20,7 +20,11 @@ $(function() {
   "use-strict";
   /* hubpi plays to be boyfriend of json :) */
 
-  var attrData    = $("[data-hp]");
+/* core */
+  var app = {
+    hubpi: $.hubpi,
+    attr: $("[data-hp]")
+  }
   var tagCore     = "html, body";
   var tagStyle    = "style";
   var awepush     = "header, .btn-update, .btn-about";
@@ -44,21 +48,20 @@ $(function() {
   });
 
 
-    if (typeof $.hubpi === "undefined") { /* data without reason hubpi */
-      $.hubpi = {};
-      GET = hubpi.get;
-      //console.log(hubpi);
+    if (typeof app.hubpi === "undefined") { /* data without reason hubpi */
+      app.hubpi = {};
+      //console.log(app.hubpi);
     }
 
   //$.hubpi = {};
   
-      $.GET = {
+      app.hubpi.get = {
       noDATA: function() {
-        if (attrData) {
+        if (app.attr) {
           this.ajaxHP();
         } 
         else {
-          attrData.html("There is no data :(");
+          app.attr.html("There is no data :(");
         }
       },
 
@@ -69,14 +72,14 @@ $(function() {
         });
 
       // loader of data content (JSON is revealed)
-      attrData.html(
+      app.attr.html(
                   '<span class="' + "hp_loader" + '">' +
                   '<span class="' + "hp_loading" + '">' +
                   '</span>' +
                   '</span>'
                   );
-      
-      $.getJSON(attrData.data("hp"), function(data) { // dataURL ("hp")
+
+      $.getJSON(app.attr.data("hp"), function(data) { // dataURL ("hp")
         
         var hp = self.content_hubpers(); 
         
@@ -84,48 +87,50 @@ $(function() {
           hp += self.template(_item);
         });
 
-        attrData.html(hp);
+        app.attr.html(hp);
         
       }).error(function(j,t,e) { // error load dataJSON :´(
-        attrData.html('<span class="' + "error-json" + '">' + "Error" + " " + e + '</span>');
+        app.attr.html('<span class="' + "error-json" + '">' + "Error" + " " + e + '</span>');
         console.error('Error : ' + e);
       });
     },
     
     // your div here here :)
     content_hubpers: function() {
-      html = ('');
+      html = ("");
       return html;
     },
 
     template: function(data) {
-      var id = data.id;
-      var link = data.link;
-      var title = data.title;
-      var date = data.date;
+      var tmpl = {
+        id: data.id,
+        link: data.link,
+        title: data.title,
+        date: data.date
+      }
 
       html = '<div class="' + "hubper-preview-content" + '">' + 
-             '<li id="' + id + '">' +
-             '<a href="' + link + '">' +
-             '<h2 class="' + "hp_title" + '" title="' + title + '">' + title +
-             '<span class="' + "hp_id" + '" data-hubper-id="' + '#' + id + '"></span>' + 
+             '<li id="' + tmpl.id + '">' +
+             '<a href="' + tmpl.link + '">' +
+             '<h2 class="' + "hp_title" + '" title="' + tmpl.title + '">' + tmpl.title +
+             '<span class="' + "hp_id" + '" data-hubper-id="' + '#' + tmpl.id + '"></span>' + 
              '</h2>' +
-             '<span class="' + "date-hubper" + '"> ' + date + '</span>' +
+             '<span class="' + "date-hubper" + '"> ' + tmpl.date + '</span>' +
              '</a>' +
              '</li>' +
              '</div>';
-             console.log('ID: ' + id + ' | Title post : ' + title + ' | Date : ' + date);
+             console.log('ID: ' + tmpl.id + ' | Title post : ' + tmpl.title + ' | Date : ' + tmpl.date);
       return html;
     }
   };
 
     // update data hubpers 
     $('#update').click(function() {
-      $.GET.noDATA();
+      app.hubpi.get.noDATA();
       return false;
     });
     $(document).ready(function() {
-      $.GET.noDATA();
+      app.hubpi.get.noDATA();
     });
 
   /* config of user */
@@ -141,16 +146,16 @@ $(function() {
     bgImg = "linear-gradient(to bottom right, rgba(30, 1, 5, 0.30), rgba(41, 36, 132, 0.85)),url('" + $bgImg + "') no-repeat";
     bgColor = $bgColor;
 
-    $('#hubpi').css({
-    "background": bgImg,
-    "background-color": bgColor,
-    "background-position": "center center",
-    "-webkit-background-size": "cover",
-    "-moz-background-size": "cover",
-    "-ms-background-size": "cover",
-    "-o-background-size": "cover",
-    "background-size": "cover",
-    "background-attachment": "fixed"
+    $("#hubpi").css({
+      "background": bgImg,
+      "background-color": bgColor,
+      "background-position": "center center",
+      "-webkit-background-size": "cover",
+      "-moz-background-size": "cover",
+      "-ms-background-size": "cover",
+      "-o-background-size": "cover",
+      "background-size": "cover",
+      "background-attachment": "fixed"
    });
 };
 
@@ -163,6 +168,7 @@ $(function() {
     }, 1000);
   });
 
+  // Running config
   config();
 
 
