@@ -5,21 +5,24 @@ $(function() {
 
   /* data hubpers with url of json posts */
 
-  var attrData  = $('[data-hp-post]');
+  var app = {
+    hubpi: $.hubpi,
+    attrPost: $("[data-hp-post]")
+  }
 
-    if (typeof $.hubpi === "undefined") { 
-      $.hubpi = {};
+    if (typeof app.hubpi === "undefined") { 
+      app.hubpi = {};
     } 
   
     // $.hubpi = {};
 
-      $.hubpi.get = {
+      app.hubpi.get = {
       noDATA: function() {
-        if (attrData) {
+        if (app.attrPost) {
           this.ajaxHP();
         } 
         else {
-          attrData.html("There is no data :(");
+          app.attrPost.html("There is no data :(");
         }
       },
 
@@ -30,14 +33,14 @@ $(function() {
         });
 
       // loader of data content
-      attrData.html(
+      app.attrPost.html(
                   '<span class="' + "hp_loader" +'">' +
                   '<span class="' + "hp_loading" +'">' +
                   '</span>' +
                   '</span>'
                   );
       
-      $.getJSON(attrData.data('hp-post'),function(data) {
+      $.getJSON(app.attrPost.data('hp-post'),function(data) {
         
         var hp = self.topcontent(); 
         
@@ -45,10 +48,10 @@ $(function() {
           hp += self.templatePOST(_item);
         });
 
-        attrData.html(hp);
+        app.attrPost.html(hp);
         
       }).error(function(j,t,e) { // error load dataJSON :´(
-        attrData.html('<span class="' + "error-post-json" + '">' + "Error " + e + '</span>');
+        app.attrPost.html('<span class="' + "error-post-json" + '">' + "Error " + e + '</span>');
         console.log('Error : ' + e);
       });
     },
@@ -60,25 +63,27 @@ $(function() {
     },
 
     templatePOST: function(data) { 
-      var content = data.content;
-      var title = data.title;
-      var date = data.date;
-
+      var tmpl = {
+        title: data.title,
+        content: data.content,
+        date: data.date
+      }
+      
       html = '<header class="' + "header-post" + '">' + 
-             '<h1 class="' + "title-post" + '" title="' + title + '">' + title + '</h1>' +
+             '<h1 class="' + "title-post" + '" title="' + tmpl.title + '">' + tmpl.title + '</h1>' +
              '</header>' +
              '<section class="' + "post-content box" + '">' +
-             '<div class="' + "date-post" + '"> ' + date + '</div>' + 
-             '<article>' + content +
+             '<div class="' + "date-post" + '"> ' + tmpl.date + '</div>' + 
+             '<article>' + tmpl.content +
              '</article>' +
              '</section>';
-             console.log('Title post : ' + title + ' | Date :' + date);
+             console.log('Title post : ' + tmpl.title + ' | Date :' + tmpl.date);
       return html;
     }
   };
 
     $(document).ready(function() {
-      $.hubpi.get.noDATA();
+      app.hubpi.get.noDATA();
     });
 
 });
