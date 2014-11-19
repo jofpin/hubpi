@@ -23,6 +23,6 @@ Recent version: 1.0.1
 
 -------------
 
-Copyright, 2014 by [José Pino](http://twitter.com/jofpin)
+Copyright, 2014 by [Jose Pino](http://twitter.com/jofpin)
 
 -------------
