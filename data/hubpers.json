@@ -1,14 +1,16 @@
 [
+   {  
+    "id": 2,
+    "title" : "Post demo",
+    "summary" : "This is a demo of my first publication with my cms hubpi.",
+    "link"  : "post/post-two.html",
+    "date"  : "17-12-2014"
+  },
   {  
     "id": 1,
     "title": "My first post with hubpi",
+    "summary" : "Welcome, thank you for using hubpi I hope you enjoy it, and help me to develop it in Github.",
     "link" : "post/my-first-post-with-hubpi.html",
     "date" : "27-04-2014"
-  },
-   {  
-    "id": 2,
-    "title" : "Post two",
-    "link"  : "post/post-two.html",
-    "date"  : "03-07-2014"
   }
 ]
