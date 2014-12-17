@@ -18,11 +18,11 @@ hey [Download Hubpi](https://github.com/jofpin/hubpi/archive/master.zip). :)
 
 ```
 Don't forget, edit the (config.js) with your data file
-Recent version: 1.0.1
+Recent version: 1.0.2
 ```
 
 -------------
 
-Copyright, 2014 by [José Pino](http://twitter.com/jofpin)
+Copyright, 2014 by [Jose Pino](http://twitter.com/jofpin)
 
 -------------
