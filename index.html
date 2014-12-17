@@ -11,13 +11,13 @@
     <meta name="apple mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <!-- end ios meta -->
-    <meta name="generator" content="Hubpi"/>
+    <meta name="generator" content="Hubpi 1.0.2"/>
     <meta name="google" value="notranslate"/>
     <meta name="author" content=""/>
     <meta name="description" content=""/>
     <meta name="keywords" content=""/>
-
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/hp-material.css">
     <link rel="shortcut icon" type="image/png" href="assets/img/favicon.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
@@ -29,50 +29,57 @@
 </head>
 <body>
 
-  <div class="wrapper">
-    <header id="hubpi">
-      <figure class="avatar">
-        <a href="#">
-       <div id="avatar"></div>
-     </a>
-   </figure>
+<div class="wrapper">
+  <header class="top-box">
+    <div class="author">
+      <div id="avatar"></div> 
+      <h1 class="author--name" id="username"></h1>
+      <h2 class="author--description" id="description"></h2>
+    </div>  
+    <div class="social">
+      <ul>
+        <li id="github"></li>
+        <li id="codepen"></li>
+        <li id="instagram"></li>
+        <li id="twitter"></li>
+      </ul>
+    </div> 
+  </header>
 
-   <div id="username"></div> 
-   <p id="description"></p>
+    <a box-color="blue" hp-button="update-posts" href="#update" id="update">
+      <span class="fa fa-refresh"></span>
+    </a> 
 
-   <a class="scrollDown" href="#" id="down" data-scrolling="down">
-    <span class="fa fa-chevron-down"></span>
-  </a>
-
-  <div class="social">
-    <div id="twitter"></div>
-    <div id="github"></div>
-    <div id="codepen"></div>
-  </div>
-</header>
-
-<a href="#update" title="update hubpers">
-      <button class="btn-update" id="update">Update</button>
-</a>
+  <div class="all--posts">  
 
   <!-- data hubpers #! -->
-<div data-hp="data/hubpers.json"></div>
-
-<a class="scrollTop" href="#" data-scrolling="hubpi">
-	<span class="fa fa-chevron-up"></span>
-</a>
+  <div data-hp="data/hubpers.json"></div>
+    
+  </div> <!-- end all posts -->
  
-<footer>
-
-  <section>
-    <div id="twitter-footer"></div>
- </section>
- <section>Created with <span class="copyright-heart" title="love"></span> by <a href="http://hubpi.co" title="Hubpi">Hubpi</a>
- </section>
-  
-</footer>
-
 </div>
+
+<footer class="footer">
+  <div class="profiles">
+    <ul>
+        <li id="github"></li>
+        <li id="codepen"></li>
+        <li id="instagram"></li>
+        <li id="twitter"></li>
+    </ul>
+  </div>
+  
+  <div class="built-hubpi" title="Hubpi cms">Built with <span class="fa fa-heart"></span> 
+    <a href="http://hubpi.co">Hubpi</a>
+  </div>
+  
+  <div class="copyright">
+    <ul>
+      <li>Copyright &copy; 2014 <a href="#"><strong id="username"></strong></a>
+      </li>
+    </ul>
+  </div>
+</footer>
 
   <!-- hubpi.js magic the hubpers -->
   <script src="assets/js/hubpi.js"></script>
