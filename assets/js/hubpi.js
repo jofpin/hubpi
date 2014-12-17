@@ -3,8 +3,9 @@
  * hubpi.js
  * ========
  * Its awesome and sexy written text to hubpear
- * version: 1.0.1
- * Date: 27/04/2014 
+ * version: 1.0.2
+ * Date: 27/04/2014
+ * last update: 17/12/2014 
  *
  * Find the project on GitHub: 
  * https://github.com/jofpin/hubpi
@@ -22,66 +23,118 @@ $(function() {
 
 /* core */
   var app = {
+    cms: "Hubpi",
+    url: "http://hubpi.co",
+    version: "1.0.2",
+    id: {
+      update: update,
+      username: username,
+      description: description,
+      avatar: avatar,
+      twitter: twitter,
+      instagram: instagram,
+      github: github,
+      codepen: codepen
+    },
+    position: {
+      top: "top",
+      bottom: "bottom",
+      center: "center",
+      left: "left",
+      right: "right"
+    },
+    prefix: {
+      wk: "-webkit-",
+      moz: "-moz-",
+      ms: "-ms-",
+      o: "-o-"
+    },
+    background: $(".top-box"),
+    bg: "background",
+    loader: "<div data-loader=\"content\"></div>",
+    awepush: $("header"),
+    anim: "animation",
+    valueDelay: "0.2s",
+    valueNormal: "intro .4s ease both",
+    tagStyle: "style",
     hubpi: $.hubpi,
     attr: $("[data-hp]")
+  };
+
+  // simplification > console.log
+  var log = function(value) {
+    console.log(value);
   }
-  var tagCore     = "html, body";
-  var tagStyle    = "style";
-  var awepush     = "header, .btn-update, .btn-about";
-  var valueDelay  = "0.2s"; 
-  var valueNormal = "awepush_intro .4s ease both";
-  var kf_awepush  = '<' + tagStyle + '>' + '@-webkit-keyframes awepush_intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-moz-keyframes awepush_intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-ms-keyframes awepush_intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-o-keyframes awepush_intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @keyframes awepush_intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } }' + '</' + tagStyle + '>';
 
-    $(kf_awepush).appendTo(awepush);
-    /* Intro animation sexy */    
-    $(awepush).css({
-      "-webkit-animation": valueNormal,
-      "-moz-animation": valueNormal,
-      "-ms-animation": valueNormal,
-      "-o-animation": valueNormal,
-      "animation": valueNormal,
-      "-webkit-animation-delay": valueDelay,
-      "-moz-animation-delay": valueDelay,
-      "-ms-animation-delay": valueDelay,
-      "-o-animation-delay": valueDelay,
-      "animation-delay": valueDelay
-  });
+  // animation header intro > hubpi :p
+  var awepush = function() {
+    var keyframes  = '<' + app.tagStyle + '>' + 
+  '@-webkit-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-moz-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-ms-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-o-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } }' + 
+  '</' + app.tagStyle + '>';
 
+    /* Intro CSS animation sexy */    
+    app.awepush.css(app.prefix.wk + app.anim, app.valueNormal);
+    app.awepush.css(app.prefix.moz + app.anim, app.valueNormal);
+    app.awepush.css(app.prefix.ms + app.anim, app.valueNormal);
+    app.awepush.css(app.prefix.o + app.anim, app.valueNormal);
+    app.awepush.css(app.prefix.wk + app.anim + "-" + "delay", app.valueDelay);
+    app.awepush.css(app.prefix.moz + app.anim + "-" + "delay", app.valueNormal);
+    app.awepush.css(app.prefix.ms + app.anim + "-" + "delay", app.valueDelay);
+    app.awepush.css(app.prefix.o + app.anim + "-" + "delay", app.valueDelay);
+    app.awepush.css(app.anim + "-" + "delay", app.valueDelay);
+    app.awepush.css(app.anim, app.valueNormal);
+
+    // reflect animation
+    $(keyframes).appendTo(app.awepush);
+  };
+
+  // Credits of Hubpi ;-)
+  var credits = function(author, twitter, domain) {
+    log("CREDITS:" + " " + app.cms + " " + app.version);
+    log("URL: " + app.url);
+    log("------------------------------");
+    log("Designed and coded by ( " + author + ", " + twitter + " | " + domain + " )");
+    log("------------------------------");
+  }
 
     if (typeof app.hubpi === "undefined") { /* data without reason hubpi */
       app.hubpi = {};
-      //console.log(app.hubpi);
+      //log(app.hubpi);
     }
 
-  //$.hubpi = {};
-  
-      app.hubpi.get = {
-      noDATA: function() {
+  // $.hubpi = {};
+
+    app.hubpi.get = {
+
+      pull: function() {
         if (app.attr) {
-          this.ajaxHP();
+          this.getAJAX("hp");
+          log("\n" + "Posts:");
+          log("==============================");
         } 
         else {
-          app.attr.html("There is no data :(");
+          //app.attr.html("There is no data :(");
+            log("information:" + " " + "There is no data :(");
         }
       },
 
-      ajaxHP: function() { /* data get json and ajax not cache :) */
+      getAJAX: function(suffix) { 
+        /* data get json and ajax not cache :) */
         var self = this;
+        // setup
         $.ajaxSetup({
-          cache: false
+          cache: false,
+          headers: {
+            "cache-control": "no-cache"
+          }
         });
 
       // loader of data content (JSON is revealed)
-      app.attr.html(
-                  '<span class="' + "hp_loader" + '">' +
-                  '<span class="' + "hp_loading" + '">' +
-                  '</span>' +
-                  '</span>'
-                  );
+      app.attr.html(app.loader);
 
-      $.getJSON(app.attr.data("hp"), function(data) { // dataURL ("hp")
-        
-        var hp = self.content_hubpers(); 
+      $.getJSON(app.attr.data(suffix), function(data) {
+        // dataURL ("hp")
+        var hp = self.relationship();
         
         $.each(data,function(_,_item) {  
           hp += self.template(_item);
@@ -90,13 +143,13 @@ $(function() {
         app.attr.html(hp);
         
       }).error(function(j,t,e) { // error load dataJSON :´(
-        app.attr.html('<span class="' + "error-json" + '">' + "Error" + " " + e + '</span>');
-        console.error('Error : ' + e);
+        app.attr.html('<div data-error="' + "json" + '">' + "Error" + " " + e + '</div>');
+        log("Error:" + " " + e);
       });
     },
     
-    // your div here here :)
-    content_hubpers: function() {
+    // your div here run :)
+    relationship: function() {
       html = ("");
       return html;
     },
@@ -104,72 +157,80 @@ $(function() {
     template: function(data) {
       var tmpl = {
         id: data.id,
-        link: data.link,
         title: data.title,
+        summary: data.summary,
+        link: data.link,
         date: data.date
-      }
+      };
 
-      html = '<div class="' + "hubper-preview-content" + '">' + 
-             '<li id="' + tmpl.id + '">' +
-             '<a href="' + tmpl.link + '">' +
-             '<h2 class="' + "hp_title" + '" title="' + tmpl.title + '">' + tmpl.title +
-             '<span class="' + "hp_id" + '" data-hubper-id="' + '#' + tmpl.id + '"></span>' + 
-             '</h2>' +
-             '<span class="' + "date-hubper" + '"> ' + tmpl.date + '</span>' +
-             '</a>' +
-             '</li>' +
+      // template html with dataJson (preview post)
+      html = '<div class="' + "post" + '">' + 
+             '<div box-color="' + "red only" + '" data-post-id="' + tmpl["id"] + '"></div>'  +
+             '<h2 class="' + "title_post" + '" title="' + tmpl["title"] + '"><a href="' + tmpl["link"] + '">' + tmpl["title"] + '</a></h2>' +
+             '<time class="' + "post_date" + '"> ' + tmpl["date"] + '</time>' +
+             '<p class="' + "summary_post" + '"> ' + tmpl["summary"] + '</p>' +
+             '<a href="' + tmpl["link"] + '" box-color="' + "blue" + '" hp-button="' + "read-more" + '">Read more <span class="' + "fa fa-angle-right" + '"></span></a>' +
              '</div>';
-             console.log('ID: ' + tmpl.id + ' | Title post : ' + tmpl.title + ' | Date : ' + tmpl.date);
+
+             // preview data post in console
+             log('ID: ' + tmpl["id"] + ' | Title post : ' + tmpl["title"] + ' | Date : ' + tmpl["date"]);
+
       return html;
     }
   };
+ 
+    // data preview direct
+    var reflectPosts = function() {
+      app.hubpi.get.pull();
+    }; 
 
     // update data hubpers 
-    $('#update').click(function() {
-      app.hubpi.get.noDATA();
-      return false;
+    var updatePosts = function() {
+      $(app.id.update).click(function() {
+        return app.hubpi.get.pull();
+        return false;
     });
-    $(document).ready(function() {
-      app.hubpi.get.noDATA();
-    });
+  };
 
   /* config of user */
-  var config = function() {
-    $("#username").append($username);
-    $("#description").append($description);
-    $("#avatar").append("<img src=" + $avatar + " alt='" + $username + "'/>");
-    $("#twitter-footer").append('<a href="https://twitter.com/' + $twitter + '" class="tw-footer" title="' + $twitter + '"></a>');
-    $("#twitter").append('<a class="twitter fa fa-twitter" href="https://twitter.com/' + $twitter + '"></a>');
-    $("#github").append('<a class="github fa fa-github" href="https://github.com/' + $github + '"></a>');
-    $("#codepen").append('<a class="codepen fa fa-codepen" href="http://codepen.io/' + $codepen + '"></a>');
-      console.log('User information:- ' + 'Username : ' + $username + ' | Description : ' + $description + ' | Twitter : ' + '@' + $twitter + ' | GitHub : ' + $github + ' | CodePen : ' + $codepen);
-    bgImg = "linear-gradient(to bottom right, rgba(30, 1, 5, 0.30), rgba(41, 36, 132, 0.85)),url('" + $bgImg + "') no-repeat";
-    bgColor = $bgColor;
+  var config = function(username, description, avatar, twitter, instagram, github, codepen) {
+    $(app.id.username).append(username);
+    $(app.id.description).append(description);
+    $(app.id.avatar).append("<img class=\"avatar\" src=" + avatar + " alt='" + username + "'/>");
+    $(app.id.twitter).append('<a href="https://twitter.com/' + twitter + '"><span class=\"fa fa-twitter\"></span></a>');
+    $(app.id.github).append('<a href="https://github.com/' + github + '"><span class=\"fa fa-github\"></span></a>');
+    $(app.id.codepen).append('<a href="http://codepen.io/' + github + '"><span class=\"fa fa-codepen\"></span></a>');
+    $(app.id.instagram).append('<a href="http://instagram.com/' + instagram + '"><span class=\"fa fa-instagram\"></span></a>');
+      // log('User information:- ' + 'Username : ' + username + ' | Description : ' + description + ' | Twitter : ' + '@' + twitter + ' | GitHub : ' + github + ' | CodePen : ' + codepen);
+    var bgimg = "linear-gradient(to " + app.position.bottom + " " + app.position.right + ", rgba(41, 36, 132, .4), rgba(52,73,94,.8)) " + app.position.center + " " + app.position.center + "/cover fixed,url('" + $bgImg + "')";
+    var bgcolor = $bgColor;
 
-    $("#hubpi").css({
-      "background": bgImg,
-      "background-color": bgColor,
-      "background-position": "center center",
-      "-webkit-background-size": "cover",
-      "-moz-background-size": "cover",
-      "-ms-background-size": "cover",
-      "-o-background-size": "cover",
-      "background-size": "cover",
-      "background-attachment": "fixed"
-   });
-};
+    // Css background > header
+     app.background.css(app.bg, bgimg);
+     app.background.css(app.bg + "-" + "color", bgcolor);
+     app.background.css(app.bg + "-" + "position", app.position.center + " " + app.position.center);
+     app.background.css(app.prefix.wk + app.bg + "-" + "size", "cover");
+     app.background.css(app.prefix.moz + app.bg + "-" + "size", "cover");
+     app.background.css(app.prefix.ms + app.bg + "-" + "size", "cover");
+     app.background.css(app.prefix.o + app.bg + "-" + "size", "cover");
+     app.background.css(app.bg + "-" + "size", "cover");
+     app.background.css(app.bg + "-" + "attachment", "fixed");
+  };
 
-  $(document).on("click", "[data-scrolling]", function(h) {
-    h.preventDefault();
-    var scroller = $("#" + $(this).data("scrolling"));
+  var deploy = function() {
+    // run credits
+    credits("Jose Pino", "@jofpin", "http://jofpin.github.io");
+    // awepush
+    awepush();
+    // run all posts
+    reflectPosts();
+    // update posts
+    updatePosts();
+    // config
+    config($username, $description, $avatar, $twitter, $instagram, $github, $codepen);
+  };
 
-    $(tagCore).animate({
-      scrollTop: scroller.position().top
-    }, 1000);
-  });
-
-  // Running config
-  config();
-
+// run functions
+deploy();
 
 });
