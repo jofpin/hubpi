@@ -49,6 +49,7 @@ $(function() {
       ms: "-ms-",
       o: "-o-"
     },
+    self: this,
     background: $(".top-box"),
     bg: "background",
     loader: "<div data-loader=\"content\"></div>",
@@ -67,7 +68,7 @@ $(function() {
   }
 
   // animation header intro > hubpi :p
-  var awepush = function() {
+  app.self.awepush = function() {
     var keyframes  = '<' + app.tagStyle + '>' + 
   '@-webkit-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-moz-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-ms-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-o-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } }' + 
   '</' + app.tagStyle + '>';
@@ -89,7 +90,7 @@ $(function() {
   };
 
   // Credits of Hubpi ;-)
-  var credits = function(author, twitter, domain) {
+  app.self.credits = function(author, twitter, domain) {
     log("CREDITS:" + " " + app.cms + " " + app.version);
     log("URL: " + app.url);
     log("------------------------------");
@@ -180,12 +181,12 @@ $(function() {
   };
  
     // data preview direct
-    var reflectPosts = function() {
+    app.self.reflectPosts = function() {
       app.hubpi.get.pull();
     }; 
 
     // update data hubpers 
-    var updatePosts = function() {
+    app.self.updatePosts = function() {
       $(app.id.update).click(function() {
         return app.hubpi.get.pull();
         return false;
@@ -193,7 +194,7 @@ $(function() {
   };
 
   /* config of user */
-  var config = function(username, description, avatar, twitter, instagram, github, codepen) {
+  app.self.config = function(username, description, avatar, twitter, instagram, github, codepen) {
     $(app.id.username).append(username);
     $(app.id.description).append(description);
     $(app.id.avatar).append("<img class=\"avatar\" src=" + avatar + " alt='" + username + "'/>");
@@ -217,20 +218,20 @@ $(function() {
      app.background.css(app.bg + "-" + "attachment", "fixed");
   };
 
-  var deploy = function() {
+  app.self.deploy = function() {
     // run credits
-    credits("Jose Pino", "@jofpin", "http://jofpin.github.io");
+    app.self.credits("Jose Pino", "@jofpin", "http://jofpin.github.io");
     // awepush
-    awepush();
+    app.self.awepush();
     // run all posts
-    reflectPosts();
+    app.self.reflectPosts();
     // update posts
-    updatePosts();
+    app.self.updatePosts();
     // config
-    config($username, $description, $avatar, $twitter, $instagram, $github, $codepen);
+    app.self.config($username, $description, $avatar, $twitter, $instagram, $github, $codepen);
   };
 
 // run functions
-deploy();
+app.self.deploy();
 
 });
