@@ -6,6 +6,7 @@ $(function() {
   /* data hubpers with url of json posts */
 
   var app = {
+    self: this,
     href: window.location.href,
     loader: "<div data-loader=\"content\"></div>",
     hubpi: $.hubpi,
@@ -100,16 +101,16 @@ $(function() {
   };
 
 
-  var reflectPost = function() {
+  app.self.reflectPost = function() {
       app.hubpi.get.pull();
     }; 
 
 
-  var deploy = function() {
-    reflectPost();
+  app.self.deploy = function() {
+    app.self.reflectPost();
   };
 
 // run functions
-deploy();
+app.self.deploy();
 
 });
