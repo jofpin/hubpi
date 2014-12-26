@@ -59,13 +59,24 @@ $(function() {
     valueNormal: "intro .4s ease both",
     tagStyle: "style",
     hubpi: $.hubpi,
-    attr: $("[data-hp]")
+    attr: $("[data-hp]"),
+    log: function(value) {
+      // simplification > console.log
+      console.log(value);
+    },
+    deploy: function() {
+      // run credits
+      app.self.credits("Jose Pino", "@jofpin", "http://jofpin.github.io");
+      // awepush
+      app.self.awepush();
+      // run all posts
+      app.self.reflectPosts();
+      // update posts
+      app.self.updatePosts();
+      // config
+      app.self.config($username, $description, $avatar, $twitter, $instagram, $github, $codepen);
+    }
   };
-
-  // simplification > console.log
-  var log = function(value) {
-    console.log(value);
-  }
 
   // animation header intro > hubpi :p
   app.self.awepush = function() {
@@ -91,11 +102,11 @@ $(function() {
 
   // Credits of Hubpi ;-)
   app.self.credits = function(author, twitter, domain) {
-    log("CREDITS:" + " " + app.cms + " " + app.version);
-    log("URL: " + app.url);
-    log("------------------------------");
-    log("Designed and coded by ( " + author + ", " + twitter + " | " + domain + " )");
-    log("------------------------------");
+    app.log("CREDITS:" + " " + app.cms + " " + app.version);
+    app.log("URL: " + app.url);
+    app.log("------------------------------");
+    app.log("Designed and coded by ( " + author + ", " + twitter + " | " + domain + " )");
+    app.log("------------------------------");
   }
 
     if (typeof app.hubpi === "undefined") { /* data without reason hubpi */
@@ -110,12 +121,12 @@ $(function() {
       pull: function() {
         if (app.attr) {
           this.getAJAX("hp");
-          log("\n" + "Posts:");
-          log("==============================");
+          app.log("\n" + "Posts:");
+          app.log("==============================");
         } 
         else {
           //app.attr.html("There is no data :(");
-            log("information:" + " " + "There is no data :(");
+            app.log("information:" + " " + "There is no data :(");
         }
       },
 
@@ -145,7 +156,7 @@ $(function() {
         
       }).error(function(j,t,e) { // error load dataJSON :´(
         app.attr.html('<div data-error="' + "json" + '">' + "Error" + " " + e + '</div>');
-        log("Error:" + " " + e);
+        app.log("Error:" + " " + e);
       });
     },
     
@@ -174,7 +185,7 @@ $(function() {
              '</div>';
 
              // preview data post in console
-             log('ID: ' + tmpl["id"] + ' | Title post : ' + tmpl["title"] + ' | Date : ' + tmpl["date"]);
+             app.log('ID: ' + tmpl["id"] + ' | Title post : ' + tmpl["title"] + ' | Date : ' + tmpl["date"]);
 
       return html;
     }
@@ -202,7 +213,7 @@ $(function() {
     $(app.id.github).append('<a href="https://github.com/' + github + '"><span class=\"fa fa-github\"></span></a>');
     $(app.id.codepen).append('<a href="http://codepen.io/' + github + '"><span class=\"fa fa-codepen\"></span></a>');
     $(app.id.instagram).append('<a href="http://instagram.com/' + instagram + '"><span class=\"fa fa-instagram\"></span></a>');
-      // log('User information:- ' + 'Username : ' + username + ' | Description : ' + description + ' | Twitter : ' + '@' + twitter + ' | GitHub : ' + github + ' | CodePen : ' + codepen);
+      // app.log('User information:- ' + 'Username : ' + username + ' | Description : ' + description + ' | Twitter : ' + '@' + twitter + ' | GitHub : ' + github + ' | CodePen : ' + codepen);
     var bgimg = "linear-gradient(to " + app.position.bottom + " " + app.position.right + ", rgba(41, 36, 132, .4), rgba(52,73,94,.8)) " + app.position.center + " " + app.position.center + "/cover fixed,url('" + $bgImg + "')";
     var bgcolor = $bgColor;
 
@@ -218,20 +229,7 @@ $(function() {
      app.background.css(app.bg + "-" + "attachment", "fixed");
   };
 
-  app.self.deploy = function() {
-    // run credits
-    app.self.credits("Jose Pino", "@jofpin", "http://jofpin.github.io");
-    // awepush
-    app.self.awepush();
-    // run all posts
-    app.self.reflectPosts();
-    // update posts
-    app.self.updatePosts();
-    // config
-    app.self.config($username, $description, $avatar, $twitter, $instagram, $github, $codepen);
-  };
-
-// run functions
-app.self.deploy();
+  // run functions (hubpi)
+  app.deploy();
 
 });
