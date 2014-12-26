@@ -10,13 +10,15 @@ $(function() {
     href: window.location.href,
     loader: "<div data-loader=\"content\"></div>",
     hubpi: $.hubpi,
-    attrPost: $("[data-hp-post]")
-  }
-
-  // simplification > console.log
-  var log = function(value) {
-    console.log(value);
-  }
+    attrPost: $("[data-hp-post]"),
+    log: function(value) {
+      // simplification > console.log
+      console.log(value);
+    },
+    deploy: function() {
+      app.self.reflectPost();
+    }
+  };
 
    /* if (typeof app.hubpi === "undefined") { 
       app.hubpi = {};
@@ -32,7 +34,7 @@ $(function() {
           this.getAJAX("hp-post");
         } 
         else {
-          log("information:" + " " + "There is no data :(");
+          app.log("information:" + " " + "There is no data :(");
         }
       },
 
@@ -59,7 +61,7 @@ $(function() {
       }).error(function(j,t,e) { 
       // error load dataJSON :´(
         app.attrPost.html('<div data-error="' + "json" + '">' + "Error" + " " + e + '</div>');
-        log("Error:" + " " + e);
+        app.log("Error:" + " " + e);
       });
     },
     
@@ -95,7 +97,7 @@ $(function() {
              '</div>';
 
              // preview data in console 
-             log('Title post : ' + tmpl["title"] + ' | Date :' + tmpl["date"]);
+             app.log('Title post : ' + tmpl["title"] + ' | Date :' + tmpl["date"]);
       return html;
     }
   };
@@ -105,12 +107,6 @@ $(function() {
       app.hubpi.get.pull();
     }; 
 
-
-  app.self.deploy = function() {
-    app.self.reflectPost();
-  };
-
-// run functions
-app.self.deploy();
-
+    // run functions
+    app.deploy();
 });
