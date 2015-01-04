@@ -19,7 +19,7 @@ hey [Download Hubpi](https://github.com/jofpin/hubpi/archive/master.zip). :)
 ```
 Don't forget, edit the (config.js) with your data file
 Recent version: 1.0.2
-Sexy style!
+Sexy style. (md)
 ```
 
 -------------
