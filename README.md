@@ -5,6 +5,8 @@ hubpi
 
 Simple and awesome cms for front-end!
 
+For Front -end 's made ​​with pure Front -end
+
 ## Download
 
 hey [Download Hubpi](https://github.com/jofpin/hubpi/archive/master.zip). :)
