@@ -5,7 +5,7 @@ hubpi
 
 Simple and awesome cms for front-end!
 
-For Front -end 's made ​​with pure Front -end
+For Front-end 's made with pure Front-end
 
 ## Download
 
