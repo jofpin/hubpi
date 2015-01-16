@@ -9,7 +9,7 @@ For Front-end 's made with pure Front-end
 
 ## Download
 
-hey [Download Hubpi](https://github.com/jofpin/hubpi/archive/master.zip). :)
+* hey [Download Hubpi](https://github.com/jofpin/hubpi/archive/master.zip).
 
 
 ### Documentation (wiki)
