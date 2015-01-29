@@ -53,7 +53,7 @@ $(function() {
     background: $(".top-box"),
     bg: "background",
     loader: "<div data-loader=\"content\"></div>",
-    awepush: $("header"),
+    effect: $("header"),
     anim: "animation",
     valueDelay: "0.2s",
     valueNormal: "intro .4s ease both",
@@ -67,8 +67,8 @@ $(function() {
     deploy: function() {
       // run credits
       app.self.credits("Jose Pino", "@jofpin", "http://jofpin.github.io");
-      // awepush
-      app.self.awepush();
+      // effect
+      app.self.effect();
       // run all posts
       app.self.reflectPosts();
       // update posts
@@ -79,25 +79,25 @@ $(function() {
   };
 
   // animation header intro > hubpi :p
-  app.self.awepush = function() {
+  app.self.effect = function() {
     var keyframes  = '<' + app.tagStyle + '>' + 
   '@-webkit-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-moz-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-ms-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @-o-keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } } @keyframes intro { 0% { top: -20em; opacity: 0; } 100% { top: 0; opacity: 1; } }' + 
   '</' + app.tagStyle + '>';
 
     /* Intro CSS animation sexy */    
-    app.awepush.css(app.prefix.wk + app.anim, app.valueNormal);
-    app.awepush.css(app.prefix.moz + app.anim, app.valueNormal);
-    app.awepush.css(app.prefix.ms + app.anim, app.valueNormal);
-    app.awepush.css(app.prefix.o + app.anim, app.valueNormal);
-    app.awepush.css(app.prefix.wk + app.anim + "-" + "delay", app.valueDelay);
-    app.awepush.css(app.prefix.moz + app.anim + "-" + "delay", app.valueNormal);
-    app.awepush.css(app.prefix.ms + app.anim + "-" + "delay", app.valueDelay);
-    app.awepush.css(app.prefix.o + app.anim + "-" + "delay", app.valueDelay);
-    app.awepush.css(app.anim + "-" + "delay", app.valueDelay);
-    app.awepush.css(app.anim, app.valueNormal);
+    app.effect.css(app.prefix.wk + app.anim, app.valueNormal);
+    app.effect.css(app.prefix.moz + app.anim, app.valueNormal);
+    app.effect.css(app.prefix.ms + app.anim, app.valueNormal);
+    app.effect.css(app.prefix.o + app.anim, app.valueNormal);
+    app.effect.css(app.prefix.wk + app.anim + "-" + "delay", app.valueDelay);
+    app.effect.css(app.prefix.moz + app.anim + "-" + "delay", app.valueNormal);
+    app.effect.css(app.prefix.ms + app.anim + "-" + "delay", app.valueDelay);
+    app.effect.css(app.prefix.o + app.anim + "-" + "delay", app.valueDelay);
+    app.effect.css(app.anim + "-" + "delay", app.valueDelay);
+    app.effect.css(app.anim, app.valueNormal);
 
     // reflect animation
-    $(keyframes).appendTo(app.awepush);
+    $(keyframes).appendTo(app.effect);
   };
 
   // Credits of Hubpi ;-)
