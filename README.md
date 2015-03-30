@@ -20,13 +20,13 @@ For Front-end 's made with pure Front-end
 
 ```js
 /* Don't forget, edit the (config.js) with your data file */
-$username = "Your name";  /* title of page or your name */
+$username    = "Your name";  /* title of page or your name */
 $description = "I am a rapper and music producer";
 $avatar      = "url or path (img) avatar";
 $bgImg       = "url or path (img) background"; /* home */
 $bgColor     = "#2196F3";
-$twitter  = ""; 
-$github   = "";
+$twitter     = ""; 
+$github      = "";
 $codepen  = "";
 $instagram = "";
 $gAnalytics  = "UA-XXXXX-X"; /* Google analytics ID */
